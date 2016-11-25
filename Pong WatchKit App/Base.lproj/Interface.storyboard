@@ -1,15 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10109" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kiT-hB-B7Z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Score: 0-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller title="Score: 0" spacing="0.0" id="AgC-eL-Hgc" customClass="GameController" customModule="Pong_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" spacing="0.0" id="hIn-3m-3c3">
+                            <items>
+                                <picker width="0.10000000000000001" height="1" alignment="left" style="sequence" enabled="NO" id="rR4-wT-sAZ"/>
+                                <imageView width="0.80000000000000004" height="1" alignment="left" id="v8O-Q6-xHz"/>
+                                <picker width="0.10000000000000001" height="1" alignment="left" style="sequence" id="d5H-CY-ofZ">
+                                    <connections>
+                                        <action selector="pickerChanged:" destination="AgC-eL-Hgc" id="kIH-pW-MPQ"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="leftPaddle" destination="rR4-wT-sAZ" id="9CA-cO-nU9"/>
+                        <outlet property="middleImage" destination="v8O-Q6-xHz" id="M7V-Lv-YFh"/>
+                        <outlet property="rightPaddle" destination="d5H-CY-ofZ" id="Hol-Z6-yyj"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="436" y="332"/>
+        </scene>
+        <!--Menu Controller-->
+        <scene sceneID="pI8-6A-3Ug">
+            <objects>
+                <controller id="kiT-hB-B7Z" customClass="MenuController" customModule="Pong_WatchKit_Extension">
+                    <items>
+                        <label width="1" height="0.29999999999999999" alignment="left" text="Pong!" textAlignment="center" id="zjT-KW-QTt">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <separator alignment="left" id="xui-lI-7mg"/>
+                        <group width="1" height="0.29999999999999999" alignment="left" layout="vertical" id="lOJ-TS-ijd">
+                            <items>
+                                <group width="1" height="0.5" alignment="left" id="3EU-8v-qIg">
+                                    <items>
+                                        <label width="0.5" height="1" alignment="left" text="Score:" id="3if-de-Br5"/>
+                                        <label width="0.5" height="1" alignment="left" text="0" textAlignment="right" id="fxP-5W-l5r"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.5" alignment="left" id="Wj5-xG-BNL">
+                                    <items>
+                                        <label width="0.69999999999999996" height="1" alignment="left" text="High Score:" id="GTN-sA-g0b"/>
+                                        <label width="0.29999999999999999" height="1" alignment="left" text="0" textAlignment="right" id="A6D-wN-o4t"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="Y4d-jU-aFT"/>
+                        <group width="1" height="0.29999999999999999" alignment="left" id="v5J-bN-VBE">
+                            <items>
+                                <button width="0.5" height="1" alignment="left" title="Play" id="UDa-6u-KJ6">
+                                    <connections>
+                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="play" id="qDL-Vs-Ee1"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" height="1" alignment="left" title="New" id="JLf-Oi-HpE">
+                                    <connections>
+                                        <segue destination="AgC-eL-Hgc" kind="push" identifier="new" id="rmy-5f-4Ox"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="highScoreLabel" destination="A6D-wN-o4t" id="k3a-M5-qBO"/>
+                        <outlet property="scoreLabel" destination="fxP-5W-l5r" id="We7-ev-PUH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="180" y="332"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qDL-Vs-Ee1"/>
+    </inferredMetricsTieBreakers>
 </document>
